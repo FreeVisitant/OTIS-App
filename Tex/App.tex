@@ -1,0 +1,302 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\textbf{Problem C.2.} Find all functions \( f : \mathbb{R} \to \mathbb{R} \) for which
+\[
+f(xf(x) + f(y)) = f(x)^2 + y
+\]
+holds for all real numbers \( x \) and \( y \).
+
+\textbf{Answer:} The solutions are all functions of the form \( f(x) = \pm x \) for all \( x \in \mathbb{R} \). Let's start by analyzing the function to understand its behavior further.
+
+\textbf{Proof:} 
+
+First, let's prove that the function is bijective. 
+
+Assume \( f(a) = f(b) \) and we want to prove \( a = b \). Set \( x = a \). 
+We have \( f(af(a) + f(y)) = f(a)^2 + y \) and similarly, \( f(bf(b) + f(y)) = f(b)^2 + y \). 
+Since \( f(a) = f(b) \), it follows that \( f(a)^2 = f(b)^2 \). Thus, \( f(bf(b) + f(y)) = f(af(a) + f(y)) \), which gives \( bf(b) + f(y) = af(a) + f(y) \). Therefore, \( af(a) = bf(b) \), leading to \( a = b \), proving injectivity.
+
+To prove surjectivity, we need to show that for every \( a \in \mathbb{R} \), there exists an \( x \in \mathbb{R} \) such that \( f(x) = a \).
+
+Taking \( x = 0 \) in the original equation \( f(xf(x) + f(y)) = f(x)^2 + y \), we get:  
+\[
+f(f(y)) = f(0)^2 + y
+\]  
+Denote \( f(0) \) as \( a \). The equation simplifies to:  
+\[
+f(f(y)) = a^2 + y
+\]
+
+For any \( c \in \mathbb{R} \), we can find \( y \) such that:  
+\[
+a^2 + y = c
+\]  
+Solving for \( y \), we get:  
+\[
+y = c - a^2
+\]
+
+Since \( y \) can be any real number, we can always find a \( y \) that satisfies the equation for any \( c \). Therefore, \( f \) is surjective because it covers all values in \(\mathbb{R}\).
+
+Since \( f \) is surjective, there exists an \( a \) such that \( f(a) = 0 \). Substituting into the main equation with \( x = a \), we get:
+\[
+f(af(a) + f(y)) = f(a)^2 + y = f(f(y)) = y
+\]
+
+Further manipulation and substitutions lead to the desired results. Using the hint to substitute \( x \) with \( f(x) \), we have:  
+\[
+f(f(x)f(f(x)) + f(y)) = f(f(x))^2 + y = f(xf(x) + f(y)) = x^2 + y
+\]  
+Thus, \( f(x)^2 = x^2 \), and we conclude that \( f(x) = \pm x \).
+
+\textbf{Commentary:} When ruling out other solutions in the reals, we can use techniques from mathematical analysis. More practice with substitutions or at least recalling them is necessary, as I feel rusty. The first tools that come to mind after two mathematical analysis courses are monotonicity or limit analysis, which may not necessarily yield the correct results, but are practical starting points.
+
+
+\textbf{Problem C.3.} Let \( a, b, c, d \) be real numbers such that \( b - d \geq 5 \) and all the roots \( x_1, x_2, x_3, \) and \( x_4 \) of the polynomial \( P(x) = x^4 + ax^3 + bx^2 + cx + d \) are real. Find the smallest value that the product \((x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1)\) can take.
+
+\textbf{Answer:} The smallest value the product can take is 16.
+
+Let's start developing the expressions to see what results we can reach:
+
+First: Let's expand the main expression, \((x_1^2 + 1)(x_2^2 + 1)(x_3^2 + 1)(x_4^2 + 1)\). This can be written as:
+\[
+x_1^2 x_2^2 x_3^2 x_4^2 + x_1^2 x_2^2 x_3^2 + x_1^2 x_2^2 x_4^2 + x_1^2 x_2^2 + x_1^2 x_3^2 x_4^2 + x_1^2 x_3^2 + x_1^2 x_4^2 + x_1^2 + x_2^2 x_3^2 x_4^2 + x_2^2 x_3^2 + x_2^2 x_4^2 + x_2^2 + x_3^2 x_4^2 + x_3^2 + x_4^2 + 1
+\]
+
+Next, we'll establish the relationships using Vieta's formulas for the main polynomial \( P(x) = x^4 + ax^3 + bx^2 + cx + d \):
+
+\[
+x_1 + x_2 + x_3 + x_4 = -a
+\]
+\[
+x_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4 = b
+\]
+\[
+x_1x_2x_3 + x_1x_2x_4 + x_1x_3x_4 + x_2x_3x_4 = -c
+\]
+\[
+x_1x_2x_3x_4 = d
+\]
+
+We will use Vieta's formulas. Since we know \( b - d \geq 5 \) from the problem, we want to minimize the expression by substituting variables using Vieta's formulas. For now, it might not be clear, but we'll proceed step by step. 
+
+First, we'll square \( d \), allowing us to substitute in the first equation:
+
+\[
+x_1^2 x_2^2 x_3^2 x_4^2 = d^2
+\]
+
+Next, we want to substitute the terms \( x_1^2 + x_2^2 + x_3^2 + x_4^2 \). We can obtain something similar by squaring \( -a \). Let's do that.
+
+Squaring the formula, we get:
+\[
+(x_1 + x_2 + x_3 + x_4)^2 = a^2
+\]
+
+Where we obtain:
+\[
+(x_1 + x_2 + x_3 + x_4)^2 = x_1^2 + x_2^2 + x_3^2 + x_4^2 + 2(x_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4)
+\]
+
+We then deduce the expression we're interested in:
+\[
+a^2 - 2(x_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4) = x_1^2 + x_2^2 + x_3^2 + x_4^2
+\]
+
+We know the expression on the left is \( 2b \), so:
+\[
+x_1^2 + x_2^2 + x_3^2 + x_4^2 = a^2 - 2b
+\]
+
+Next, we want to find expressions like \( x_i^2 x_j^2 \) (where \( i, j = 1, 2, 3, 4 \) and \( i \neq j \)). By analyzing Vieta's formulas, we should expand \( b \) and see what happens:
+
+\[
+(x_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4)^2 = b^2
+\]
+
+Expanding, we get:
+\[
+(x_1x_2 + x_1x_3 + x_1x_4 + x_2x_3 + x_2x_4 + x_3x_4)^2 = x_1^2x_2^2 + x_1^2x_3^2 + x_1^2x_4^2 + x_2^2x_3^2 + x_2^2x_4^2 + x_3^2x_4^2 + 6x_1x_2x_3x_4 + 2(x_1^2x_2x_3
+\]
+\[ + x_1^2x_2x_4 + x_1^2x_3x_4 + x_1x_2^2x_3 + x_1x_2^2x_4 + x_3x_2^2x_4 + x_1x_2x_3^2 + x_1x_4x_3^2 + x_2x_4x_3^2 + x_1x_2x_4^2 + x_3x_2x_4^2 + x_1x_3x_4^2)
+\]
+We observe the last expression is \( 6d \), but there is a term:
+
+\[
+2( x_1^2 (x_2x_3 + x_2x_4 + x_3x_4) + x_2^2 (x_1x_3 + x_1x_4 + x_3x_4) + x_3^2 (x_1x_2 + x_1x_4 + x_2x_4) + x_4^2 (x_1x_2 + x_1x_3 + x_2x_3) )
+\]
+
+We don't know this expression yet, but we want to simplify it. We'll experiment by multiplying \( -c \) and \( -a \), and see what happens.
+
+\[
+(-a)(-c)= ac
+\]
+
+\[
+x_1^2(x_2x_3 + x_2x_4 + x_3x_4) + x_2^2(x_1x_3 + x_1x_4 + x_3x_4) + x_3^2(x_1x_2 + x_1x_4 + x_2x_4) + x_4^2(x_3x_1 + x_3x_2 + x_1x_2) + 4(x_1x_2x_3x_4)
+\]
+
+We obtain the unknown expression, equal to \( ac - 4d \), which, when squaring \( b \), was multiplied by 2. So, \( b^2 \) becomes \( b^2 - 2ac + 8d - 6d = b^2 - 2ac + 2d \).
+
+Finally, we want \( c^2 \) to make the appropriate substitutions:
+
+\[
+(x_1x_2x_3 + x_1x_2x_4 + x_1x_3x_4 + x_2x_3x_4)^2 = c^2
+\]
+
+\[
+(x_1x_2x_3 + x_1x_2x_4 + x_1x_3x_4 + x_2x_3x_4)^2 = (x_1x_2x_3)^2 + (x_1x_2x_4)^2 + (x_1x_3x_4)^2 + (x_2x_3x_4)^2 +  
+\]
+\[ 2(x_1x_2x_3x_1x_2x_4 + x_1x_2x_3x_1x_3x_4 + x_1x_2x_3x_2x_3x_4 + x_1x_2x_4x_1x_3x_4 + x_1x_2x_4x_2x_3x_4 + x_1x_3x_4x_2x_3x_4)
+\]
+
+Taking out common factors, we have \( c^2 = (x_1x_2x_3)^2 + (x_1x_2x_4)^2 + (x_1x_3x_4)^2 + (x_2x_3x_4)^2 + 2x_1x_2x_3x_4(x_1x_2 + x_1x_3 + x_2x_3 + x_1x_4 + x_2x_4 + x_3x_4)
+\)
+
+So \( c^2 = (x_1x_2x_3)^2 + (x_1x_2x_4)^2 + (x_1x_3x_4)^2 + (x_2x_3x_4)^2 + 2db \). Therefore, the last expression is \( c^2 - 2db \).
+
+Substituting these into the main expanded expression, we have:
+
+\[
+d^2 + c^2 - 2db + b^2 + 2d - 2ac + a^2 - 2b + 1
+\]
+
+From this, we want to find the minimum value it can reach, knowing \( b - d \geq 5 \). Since the minimum is \( b - d = 5 \), grouping terms, we have:
+\[
+a^2 + c^2 - 2ac + (b - d)^2 - 2(b - d) + 1
+\]
+
+\[
+= a^2 + c^2 - 2ac + 25 - 10 + 1
+\]
+
+\[
+= a^2 + c^2 - 2ac + 16
+\]
+
+Using AM-GM inequality, \( \text{AM-GM} \geq 2ac - 2ac + 16 = 16 \).
+
+
+\textbf{Problem B.1.} Suppose \( a^2 + b^2 + c^2 = 1 \) for positive real numbers \( a, b, c \). Find the minimum possible value of
+\[
+\frac{ab}{c} + \frac{bc}{a} + \frac{ca}{b}.
+\]
+
+\textbf{Comment:} I wandered too much on this problem until I realized the correct substitution for me, and everything became much easier. The first solution (which is not a solution because it was wrong) took me many pages and hours :)
+
+\textbf{Answer:} The minimum possible value of the expression is 3.
+
+\textbf{Proof:}
+
+Let's use the following substitutions, which I believe are general enough:  
+\( x = \frac{ab}{c}, \, y = \frac{bc}{a}, \, z = \frac{ca}{b} \), where \( x, y, z \) are positive real numbers.
+
+If we multiply \( x \) by \( y \), we get \( xy = b^2 \). Doing the same for the rest, we find:
+\( xy + xz + yz = b^2 + a^2 + c^2 = 1 \).
+
+Starting from this solution, let's consider \( (x + y + z) \) and square it:
+\[
+(x + y + z)^2 = x^2 + y^2 + z^2 + 2(xy + yz + zx) = x^2 + y^2 + z^2 + 2 ------ (1)
+\]
+
+Now, we'll use the AM-GM inequality for the different sets with the expressions:
+
+\[
+x^2 + y^2 \geq 2xy
+\]
+\[
+x^2 + z^2 \geq 2xz
+\]
+\[
+z^2 + y^2 \geq 2zy
+\]
+
+Adding all these inequalities, we have:
+\[
+2(x^2 + y^2 + z^2) \geq 2(xy + yz + zx)
+\]
+Solving, 
+\[
+x^2 + y^2 + z^2 \geq xy + yz + zx
+\]
+Adding two to both sides of the inequality,
+\[
+x^2 + y^2 + z^2 + 2 \geq xy + yz + zx + 2
+\]
+From (1), we know the above expression equals:
+\[
+(x + y + z)^2 \geq 3
+\]
+
+Therefore, \( x + y + z \geq \sqrt{3} \). Substituting the variables with the initial expressions, we have:
+\[
+\frac{ab}{c} + \frac{bc}{a} + \frac{ca}{b} \geq \sqrt{3}.
+\]
+
+
+
+\textbf{Problem B.2.} Let \( a, b, c \) be positive real numbers such that \( a^2 + b^2 + c^2 + (a + b + c)^2 \leq 4 \). Prove that
+\[
+\frac{ab + 1}{(a + b)^2} + \frac{bc + 1}{(b + c)^2} + \frac{ca + 1}{(c + a)^2} \geq 3.
+\]
+
+\textbf{Comment:} As with the previous exercise, I received a hint for this one, which helped me solve it.
+
+\textbf{Answer:} Since we are looking for a specific given value, let's proceed step by step to find it.
+
+Expanding the initial expression, \( a^2 + b^2 + c^2 + (a + b + c)^2 \leq 4 \), we have:
+\[
+4 \geq 2(a^2 + b^2 + c^2 + ab + bc + ca)
+\]
+
+From this, we get:
+\[
+2 \geq a^2 + b^2 + c^2 + ab + bc + ca
+\]
+
+To simplify, let's denote \( m = \sum_{\text{cyc}} \frac{ab + 1}{(a + b)^2} \). Now, we'll use the following hint:
+
+\textbf{Hint:} \( 2 \sum_{\text{cyc}} \frac{ab + 1}{(a + b)^2} \geq \frac{2ab}{(a + b)^2} + \frac{2}{(a + b)^2} \).
+
+Substituting \( 2 \), which is the maximum of the following expression, we get:
+
+\[
+2m \geq \sum_{\text{cyc}}\left[\frac{2ab}{(a + b)^2} + \frac{a^2 + b^2 + c^2 + ab + bc + ca}{(a + b)^2}\right]
+\]
+
+Separating the terms and manipulating (grouping) the variables, we can say:
+
+\[
+\sum_{\text{cyc}}\left[\frac{(a + b)^2}{(a + b)^2} + \frac{c^2 + ab + bc + ca}{(a + b)^2}\right] = 3 + \sum_{\text{cyc}}\left[\frac{c^2 + ab + bc + ca}{(a + b)^2}\right]
+\]
+
+Taking similar terms, we get:
+\[
+= 3 + \sum_{\text{cyc}}\left[\frac{(a + c)(b + c)}{(a + b)^2}\right]
+\]
+
+Since it is a symmetric sum and the number of expressions is 3, previously we multiplied 1 by 3, the same will happen with the rest of the expression. Substituting, we have:
+
+\[
+2\left(\frac{ab + 1}{(a + b)^2} + \frac{bc + 1}{(b + c)^2} + \frac{ca + 1}{(c + a)^2}\right) \geq 3 + \left(\frac{(a+c)(b+c)}{(a + b)^2} + \frac{(a+c)(b+a)}{(b + c)^2} + \frac{(a+b)(b+c)}{(c + a)^2}\right)
+\]
+
+Applying the AM-GM inequality, we arrive at:
+\[
+3 + \left(\frac{(a+c)(b+c)}{(a + b)^2} + \frac{(a+c)(b+a)}{(b + c)^2} + \frac{(a+b)(b+c)}{(c + a)^2}\right) \geq 3 + 3\sqrt[3]{1} = 6
+\]
+
+Thus, we conclude that
+\[
+\frac{ab + 1}{(a + b)^2} + \frac{bc + 1}{(b + c)^2} + \frac{ca + 1}{(c + a)^2} \geq \frac{6}{2} = 3.
+\]
+
+
+
+\end{document}
+
+
